@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>품(form) 태그</title>
+    <style>
+        .wrap {
+            margin: 0 auto;
+            width: 80%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>폼(form) 태그</h1>
+        <!-- 
+        client와 server와 통신 할 때 사용하는 태그
+            - client 의 테이터를 서버로 전송할 때 사용 
+            - 로그인(ID/pass)  
+            - 회원가입 () , ID, pass , 주소 , 이미지 , 하고싶은 말
+        action : 서버로 처리할 페이지
+        mechad : client의 데이터를 서버로 전송하는 방식
+            get : client의 데이터를 URL에 뒤에 넣어서 서버로 전송
+                    255byte까지만 전송됨. 보안에 취약함
+            post : http 헤더 앞에서 데이터를 전송, ur1에 출력되지 않음. 보안이 강하다.
+                : 무제한 데이터를 전송
+
+        id 속성 : 변수명
+                값
+
+        -->
+        <hr>
+
+        <h2>회원가입 양식</h2>
+        <p></p>
+        <form action="abc.jjb" method="post" >
+            <table>
+                <tr>
+                    <td><label for="id">아이디 :</label></td>
+                    <td><input type="text" id="id" name="id" placeholder="아이디를 입력해주세요"></td>
+                </tr>
+                <tr>
+                    <td><label for="pw">패스워드 :</label></td>
+                    <td><input type="password" id="pw" name="pw" placeholder="패스워드를 입력해주세요"></td>
+                </tr>
+                <tr>
+                    <td><label for="pw_confirm">패스워드 확인 :</label></td>
+                    <td><input type="password" id="pw_confirm" name="pw_confirm" placeholder="패스원드를 확인해주세요"></td>
+                </tr>
+                <tr>
+                    <td><label for="email">이메일 :</label></td>
+                    <td><input type="email" id="email" name="email" placeholder="매일주소를 입력해주세요"></td>
+                </tr>
+                <tr>
+                    <td><label for="phone">전화번호 :</label></td>
+                    <td><input type="tel" id="phone" name="phone" placeholder="전화번호를 입력해주세요"></td>
+                </tr>
+                <tr>
+                    <td><label for="gender">성별 1 :</label></td>
+                    <td>
+                        <select name="gender" id="gender">
+                            <option value="man" selected>남자</option>
+                            <option value="woman">여자</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>성별 2 :</td>
+                    <td>
+                        <label><input type="radio" name="gender2" value="man"> 남자</label>
+                        <label><input type="radio" name="gender2" value="woman"> 여자</label>
+                        <label><input type="radio" name="gender2" value="none"> 선택 안함</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>취미 : </td>
+                        <td>
+                            <input type="checkbox" name="hobby1" value="sports">스포츠
+                            <input type="checkbox" name="hobby2" value="music">음악
+                            <input type="checkbox" name="hobby3" value="reading">독서
+                            <input type="checkbox" name="hobby4" value="travel">여행
+                        </td>
+                </tr>
+                <tr>
+                    <td><label for="birthdate">생년월일 :</label></td>
+                    <td><input type="date" id="birthdate" name="birthdate" placeholder="생년월일을 입력해주세요"></td>
+                </tr>
+                <tr>
+                    <td><label for="introduction">자기소개 :</label></td>
+                    <td>
+                        <textarea id="introduction" name="introduction" rows="20" cols="50" placeholder="자기소개를 입력해주세요"></textarea>
+
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2"><input type="reset" value="리셋"><input type="submit" value="전송"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            /* 중앙 정렬 : width 값이 정의 되어야 중앙 정렬 */
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .d1 {
+            border: 1px solid red;
+            width: 100px;
+            float: left;
+            margin: 30px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: greenyellow;
+            box-shadow: 5px 5px 5px black;
+
+        }
+
+        .d1:hover {
+            background-color: aqua;
+            /* 박스의 색을 바꿈 */
+            color: red;
+            /* 박스안의 글자색 */
+            /* 
+            그림자 효과 :
+            box-shadow: 수평이동 번짐의 강도 10px 10px 10px black; 
+            */
+            box-shadow: 10px 10px 10px black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    cemmet :
+        div.wrap>div.di{$}*5
+    -->
+    <div class="wrap" align="center">
+        <div class="d1">버튼1</div>
+        <div class="d1">버튼2</div>
+        <div class="d1">버튼3</div>
+        <div class="d1">버튼4</div>
+        <div class="d1">버튼5</div>
+    </div>
+</body>
+
+</html>

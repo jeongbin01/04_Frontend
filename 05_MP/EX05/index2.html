@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RUBATO – 클래식 기타 커뮤니티</title>
+    <style>
+        /* 전체 래퍼 */
+        #wrap {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* 헤더 */
+        header {
+            height: 100px;
+            position: relative;
+        }
+
+        #logo {
+            position: absolute;
+            left: 20px;
+            top: 10px;
+        }
+
+        #top_menu {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        #main_menu {
+            width: 790px;
+            height: 50px;
+            background: url('img/main_menu_bg.png') no-repeat;
+            position: absolute;
+            left: 230px;
+            top: 40px;
+        }
+
+        #main_menu ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            line-height: 35px;
+        }
+
+        #main_menu li {
+            display: inline-block;
+            float: left;
+            margin-left: 55px;
+            margin-right: 30px;
+        }
+
+        #main_menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        #main_menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* 본문 레이아웃 */
+        .content {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        /* 좌측 로그인 + 메뉴 */
+        aside {
+            width: 200px;
+            margin-right: 20px;
+        }
+
+        /* 로그인 박스 */
+        #login_box {
+            width: 166px;
+            height: 100px;
+            padding: 10px;
+            background-color: #f3f3f3;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+
+        #login_box #input_button {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            margin-bottom: 8px;
+        }
+
+        #login_input {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #login_input input {
+            width: 100px;
+            height: 20px;
+            padding: 1px 4px;
+            border: 1px solid #dddddd;
+            font-size: 12px;
+            box-sizing: border-box;
+        }
+
+        #btn_login {
+            cursor: pointer;
+        }
+
+        #join_search {
+            display: flex;
+            gap: 2px;
+        }
+
+        #join_search img {
+            cursor: pointer;
+            vertical-align: middle;
+        }
+
+        /* 서브 메뉴 */
+        #sub_menu {
+            width: 200px;
+            margin-top: 20px;
+            background-image: url('img/sub_menu_bg.png');
+            background-repeat: no-repeat;
+            background-size: contain;
+            /* 필요 시 배경 크기 조절 */
+            padding-bottom: 70px;
+        }
+
+        #sub_menu ul {
+            padding: 80px 0 0 30px;
+            margin: 0;
+            list-style: none;
+        }
+
+        #sub_menu li {
+            margin-bottom: 10px;
+        }
+
+        #sub_menu a:link,
+        #sub_menu a:visited,
+        #sub_menu a:active {
+            color: #000;
+            text-decoration: none;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        #sub_menu a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        /* 베너 */
+        #banner {
+            display: block;
+            width: 186px;
+            height: 170px;
+            margin: 15px 0 0 0;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        /* 배너 내부 여백 */
+        #banner ul {
+            padding: 6px 0 0 4px;
+            margin: 0;
+            list-style: none;
+        }
+
+        /* 배너 이미지 */
+        #banner ul img {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+
+        #main_content {
+            margin: 0 0 0 100px;
+        }
+
+        section#main img {
+            display: block;
+            margin-left: auto;
+            margin-right: -4px;
+        }
+
+        /* 게시판 메인 영역 */
+        #total_search {
+            position: relative;
+            left: 3px;
+            /* 👉 오른쪽으로 30px 이동 (음수면 왼쪽) */
+        }
+
+        section#main {
+            width: 760px;
+            float: right;
+            font-family: 'Malgun Gothic', sans-serif;
+        }
+
+        section#main h2#board_title {
+            margin-top: 20px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #bbb;
+            font-size: 18px;
+        }
+
+        /* 전체 검색 영역 */
+        #total_search {
+            position: relative;
+            border-radius: 5px;
+            overflow: hidden;
+            font-size: 13px;
+        }
+
+        /* 총 게시물 수 */
+        #total {
+            float: left;
+            line-height: 30px;
+            color: #333;
+        }
+
+        /* 검색 우측 정렬 */
+        #search {
+            float: right;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #search_select select {
+            height: 18px;
+            font-size: 15px;
+            top: 20px;
+        }
+
+        #search_input input {
+            width: 120px;
+            height: 24px;
+            padding: 2px 6px;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+        }
+
+        #search_btn img {
+            height: 26px;
+            cursor: pointer;
+        }
+
+        /* 테이블 구조 */
+        table {
+            width: 100%;
+            margin: 10px auto 0;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        table tr {
+            height: 30px;
+        }
+
+        table th {
+            background-color: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table td {
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            padding: 4px;
+        }
+
+        /* 열 정렬 */
+        td.col1 {
+            width: 50px;
+        }
+
+        td.col2 {
+            text-align: left;
+            padding-left: 10px;
+        }
+
+        td.col3,
+        td.col4,
+        td.col5 {
+            width: 80px;
+        }
+
+        /* 링크 스타일 */
+        td.col2 a {
+            color: #444;
+            text-decoration: none;
+        }
+
+        td.col2 a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        /* 전체 버튼 영역을 세로 배치 */
+        #buttons {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ◀ 이전 1 다음 ▶ 가운데 정렬 */
+        #buttons .col1 {
+            font-size: 13px;
+            text-align: center;
+            width: 100%;
+            color: #333;
+        }
+
+        /* 버튼 래퍼 오른쪽 정렬 */
+        #buttons .col2 {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 20px;
+            box-sizing: border-box;
+        }
+
+        /* 버튼 그룹 내부 정렬 */
+        #buttons .col2_1 {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* 버튼 이미지 공통 스타일 */
+        .col2_1 img {
+            height: 30px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .col2_1 img:hover {
+            transform: scale(1.05);
+            border-color: #888;
+        }
+
+        /* 푸터 전체 */
+        footer {
+            width: 100%;
+            height: 100px;
+            border-top: 1px solid #bbb;
+            margin-top: 40px;
+            /* 상단 여백 */
+            margin-bottom: 20px;
+            /* 하단 여백 */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            background-color: #fff;
+            font-family: 'Malgun Gothic', sans-serif;
+            font-size: 16px;
+            color: #444;
+        }
+
+        /* 왼쪽 로고 */
+        footer img {
+            height: 50px;
+        }
+
+        /* 가운데 또는 오른쪽 회사 정보 */
+        .footer-info {
+            flex: 1;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* 오른쪽 SNS 링크 */
+        .social-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-links img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-top: -50px;
+            transition: transform 0.2s ease;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- 상단 헤더 -->
+        <header>
+            <a href="index.html" id="logo">
+                <img src="img/logo.png" alt="RUBATO 로고">
+            </a>
+            <nav id="top_menu">
+                HOME | LOGIN | JOIN | NOTICE
+            </nav>
+            <nav id="main_menu">
+                <ul>
+                    <li><a href="#">자유 게시판</a></li>
+                    <li><a href="#">기타 연주</a></li>
+                    <li><a href="#">공동 구매</a></li>
+                    <li><a href="#">연주회 안내</a></li>
+                    <li><a href="#">회원 게시판</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- 본문 영역 -->
+        <div class="content">
+            <!-- 좌측 aside -->
+            <aside>
+                <!-- 로그인 박스 -->
+                <div id="login_box">
+                    <img id="login_title" src="img/ttl_login.png" alt="로그인">
+                    <div id="input_button">
+                        <ul id="login_input">
+                            <li><input type="text" placeholder="아이디"></li>
+                            <li><input type="password" placeholder="비밀번호"></li>
+                        </ul>
+                        <img id="btn_login" src="img/btn_login.gif" alt="로그인">
+                    </div>
+                    <div id="join_search">
+                        <img src="img/btn_join.gif" alt="회원가입">
+                        <img src="img/btn_search.gif" alt="아이디/비밀번호 찾기">
+                    </div>
+                </div>
+
+                <!-- 서브 메뉴 -->
+                <nav id="sub_menu">
+                    <ul>
+                        <li><a href="#">+ 자유 게시판</a></li>
+                        <li><a href="#">+ 방명록</a></li>
+                        <li><a href="#">+ 공지사항</a></li>
+                        <li><a href="#">+ 등업 요청</a></li>
+                        <li><a href="#">+ 포토갤러리</a></li>
+                    </ul>
+                </nav>
+
+                <!-- 배너 -->
+                <strong id="banner">
+                    <ul>
+                        <li><img src="img/banner1.png" alt="이용안내"></li>
+                        <li><img src="img/banner2.png" alt="회원 연주"></li>
+                        <li><img src="img/banner3.png" alt="Youtube"></li>
+                    </ul>
+                </strong>
+            </aside>
+            <section id="main">
+                <img src="img/comm.gif" alt="커뮤니티 이미지">
+
+                <h2 id="board_title">자유 게시판</h2>
+
+                <!-- 전체 검색 영역 -->
+                <div id="total_search">
+                    <div id="total">▶ 총 5개의 게시물이 있습니다.</div>
+
+                    <div id="search">
+                        <div id="select_img">
+                            <img src="img/select_search.gif" alt="검색선택배경">
+                        </div>
+
+                        <div id="search_select">
+                            <select>
+                                <option>제목</option>
+                                <option>내용</option>
+                                <option>글쓴이</option>
+                            </select>
+                        </div>
+
+                        <div id="search_input">
+                            <input type="text">
+                        </div>
+
+                        <div id="search_btn">
+                            <img src="img/search_button.gif" alt="검색">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 게시글 테이블 -->
+                <table>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>글쓴이</th>
+                        <th>일시</th>
+                        <th>조회수</th>
+                    </tr>
+
+                    <tr>
+                        <td class="col1">1</td>
+                        <td class="col2"><a href="board_view.html">가수님의 보드카가 정말 독하네요!</a></td>
+                        <td class="col3">루바토</td>
+                        <td class="col4">2017-09-20</td>
+                        <td class="col5">15</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">2</td>
+                        <td class="col2"><a href="board_view.html">가수님의 보드카가 정말 독하네요!</a></td>
+                        <td class="col3">루바토</td>
+                        <td class="col4">2017-09-20</td>
+                        <td class="col5">15</td>
+                    </tr>
+                    <tr>
+                        <td class="col1">3</td>
+                        <td class="col2"><a href="board_view.html">가수님의 보드카가 정말 독하네요!</a></td>
+                        <td class="col3">루바토</td>
+                        <td class="col4">2017-09-20</td>
+                        <td class="col5">15</td>
+                    </tr>
+                </table>
+
+                <!-- 하단 버튼 영역 -->
+                <div id="buttons">
+                    <div class="col1">◀ 이전 1 다음 ▶</div>
+                    <div class="col2">
+                        <div class="col2_1">
+                            <img src="img/list.png" alt="목록">
+                            <img src="img/write.png" alt="글쓰기">
+                            </a>
+                        </div>
+                    </div>
+            </section>
+        </div>
+        <footer>
+            <img src="img/logo_footer.gif" alt="RUBATO 로고">
+            <div class="footer-info">
+                서울시 강남구 언주로 234 | 123-1234<br>
+                TEL: 031-123-1234 | Email: mail@domain.com<br>
+                COPYRIGHT (C) 루바토 ALL RIGHTS RESERVED
+            </div>
+            <div class="social-links">
+                <a href="#"><img src="img/facebook.gif" alt="Facebook"></a>
+                <a href="#"><img src="img/blog.gif" alt="Blog"></a>
+                <a href="#"><img src="img/twitter.gif" alt="Twitter"></a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

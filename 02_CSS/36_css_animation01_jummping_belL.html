@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jumping Balls</title>
+    <style>
+        /* 공 기본 스타일 */
+        div {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            /* 완전한 원 */
+            background-color: red;
+            bottom: 0;
+            /* 애니메이션 시작 위치 */
+            animation: bounce 10s infinite alternate;
+            /* 애니메이션 이름·지속시간·반복·alternate 지정 */
+        }
+
+        /* bounce 애니메이션 정의 */
+        @keyframes bounce {
+
+            0%,
+            100% {
+                /* 시작(0%)과 끝(100%) */
+                bottom: 0;
+                animation-timing-function: ease-out;
+            }
+
+            50% {
+                /* 중간(50%) */
+                bottom: 200px;
+                animation-timing-function: ease-in;
+            }
+        }
+
+        /* 공별 가로 위치와 색상 */
+        #b1 {
+            left: 10px;
+            background-color: red;
+            animation-duration: 5s;
+        }
+
+        #b2 {
+            left: 50px;
+            background-color: green;
+            animation-duration: 10s;
+        }
+
+        #b3 {
+            left: 90px;
+            background-color: yellow;
+            animation-duration: 3s;
+        }
+
+        #b4 {
+            left: 140px;
+            background-color: black;
+            animation-duration: 7s;
+        }
+
+        #b5 {
+            left: 170px;
+            background-color: blue;
+            animation-duration: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 애니메이션을 활용한 점핑볼 -->
+    <div id="b1"></div>
+    <div id="b2"></div>
+    <div id="b3"></div>
+    <div id="b4"></div>
+    <div id="b5"></div>
+</body>
+
+</html>

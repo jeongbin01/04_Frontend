@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jumping Balls</title>
+  <style>
+    div {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: red;
+      bottom: 0;                      
+      animation: bounce 10s infinite alternate;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        bottom: 0;
+        animation-timing-function: ease-out;
+      }
+      50% {
+        bottom: 200px;
+        animation-timing-function: ease-in;
+      }
+    }
+
+
+    #b1 { right:  10px; background-color: red;    animation-duration: 5s; }
+    #b2 { right:  50px; background-color: green;  animation-duration: 10s; }
+    #b3 { right:  90px; background-color: yellow; animation-duration: 3s; }
+    #b4 { right: 140px; background-color: black;  animation-duration: 7s; }
+    #b5 { right: 170px; background-color: blue;   animation-duration: 3s; }
+  </style>
+</head>
+<body>
+  <div id="b1"></div>
+  <div id="b2"></div>
+  <div id="b3"></div>
+  <div id="b4"></div>
+  <div id="b5"></div>
+</body>
+</html>

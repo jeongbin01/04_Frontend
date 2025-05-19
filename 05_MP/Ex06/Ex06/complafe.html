@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹 호스팅 서비스</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8f9fa;
+            min-height: 100vh;
+            padding: 60px 40px;
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 공통 카드 스타일 */
+        .card {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            max-width: 480px;
+            min-width: 320px;
+            background: #ffffff;
+            padding: 40px 32px;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #e9ecef;
+        }
+
+        /* 호버 효과 */
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        }
+
+        /* 첫 번째 카드 - 메인 서비스 */
+        .card:first-child {
+            background: #ffffff;
+            border: 1px solid #e9ecef;
+        }
+
+        /* 두 번째, 세 번째 카드 - 부가 서비스 */
+        .card:nth-child(2),
+        .card:nth-child(3) {
+            border: 2px solid #88b0d1;
+            background: #ffffff;
+        }
+
+        .card:nth-child(2):hover,
+        .card:nth-child(3):hover {
+            border-color: #88b0d1;
+            box-shadow: 0 8px 32px rgba(74, 144, 226, 0.15);
+        }
+
+        /* 아이콘 컨테이너 */
+        .icon-container {
+            width: 120px;
+            height: 120px;
+            margin-right: 24px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .icon-container {
+            transform: scale(1.05);
+        }
+
+        .icon-container img {
+            width: 200px;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        /* 텍스트 컨텐츠 */
+        .content {
+            flex: 1;
+        }
+
+        .content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #040706;
+            line-height: 1.4;
+        }
+
+        .content p {
+            font-size: 1rem;
+            color: #79797b;
+            line-height: 1.6;
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 1200px) {
+            body {
+                flex-wrap: wrap;
+                gap: 24px;
+            }
+
+            .card {
+                flex: 1 1 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 40px 20px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .card {
+                flex-direction: column;
+                text-align: center;
+                padding: 32px 24px;
+                min-width: 280px;
+                max-width: none;
+                width: 100%;
+            }
+
+            .icon-container {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 100px;
+                height: 100px;
+            }
+
+            .icon-container img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .content h2 {
+                font-size: 1.3rem;
+                margin-bottom: 10px;
+            }
+
+            .content p {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            .card {
+                padding: 28px 20px;
+                min-width: 260px;
+            }
+
+            .content h2 {
+                font-size: 1.2rem;
+            }
+
+            .content p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="icon-container">
+            <img src="img/fox-in-suit.png" alt="여우 캐릭터">
+        </div>
+        <div class="content">
+            <h2>모든 웹사이트를 누가 호스팅하는지 찾으십시오</h2>
+            <p>웹사이트의 URL을 입력하여 어떤 호스팅 서비스를 사용하는지 알아보십시오</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="icon-container">
+            <img src="img/fox-with-horn.png" alt="확성기를 든 여우">
+        </div>
+        <div class="content">
+            <h2>시장 점유율 2021</h2>
+            <p>국가별로 나뉜 각 호스팅 회사의 2021 시장 점유율을 살펴보십시오</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="icon-container">
+            <img src="img/fox-with-server.png" alt="노트북을 든 여우">
+        </div>
+        <div class="content">
+            <h2>웹 호스팅의 일대일 비교</h2>
+            <p>3개까지의 웹호스팅 회사를 간단히 비교하고 어느 것이 더 나은지 보십시오</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .item {
+            /* height:100px;  */
+            /* 글자(item) 중앙 정렬  */
+            display: flex;
+            justify-content: center;
+            /* 수평 정렬 */
+            align-items: center;
+            /* 수직 정렬 */
+
+            border: 1px solid red;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .color1 {
+            background-color: rgb(152, 183, 209);
+        }
+
+        .color2 {
+            background-color: rgb(236, 239, 162);
+        }
+
+        .color3 {
+            background-color: rgb(120, 187, 154);
+        }
+
+        .color4 {
+            background-color: rgb(178, 101, 85);
+        }
+
+        .color5 {
+            background-color: rgb(209, 152, 184);
+        }
+
+        .color6 {
+            background-color: rgb(172, 81, 81);
+        }
+
+        .color7 {
+            background-color: rgb(72, 142, 145);
+        }
+
+        .color8 {
+            background-color: rgb(152, 209, 184);
+        }
+
+        .color9 {
+            background-color: rgb(55, 29, 56);
+        }
+
+        .color10 {
+            background-color: rgb(37, 172, 140);
+        }
+
+        .color11 {
+            background-color: rgba(34, 106, 200, 0.724);
+        }
+
+        .color12 {
+            background-color: rgb(182, 209, 152);
+        }
+
+        /* Grid 적용 */
+
+        .container {
+            display: grid;
+            /* grid-template-columns: 200px 200px 200px 200px 200px ; */
+            /* grid-template-columns: repeat(5,20%); */
+            /* grid-template-columns: 1fr 2fr 1fr 1fr; */
+            grid-template-columns: repeat(5, 1fr);
+
+            /* grid-template-rows: 100px 100px 100px ; */
+            /* grid-template-rows: repeat(3,100px ); */
+            grid-auto-rows: 100px;
+            grid-gap: 1rem;
+            padding: 1rem;
+        }
+
+        .item2 {
+            /* grid-column-start: 2;
+            grid-column-end: 4 ; */
+            grid-column: 2 / 4;
+
+            /* grid-row-start: 1;
+            grid-row-end: 3; */
+            grid-row: 2 / 4;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- grid 기초 개념 
+            - grid container : 아이템을 감싸는 박스, display : grid 
+            - grid item      : grid container 내부에 있는 박스
+            
+            emmet : div.container>div.item.color${Item$}*12
+            -->
+    <div class="container">
+        <div class="item color1">Item1</div>
+        <div class="item item2 color2">Item2</div>
+        <div class="item color3">Item3</div>
+        <div class="item color4">Item4</div>
+        <div class="item color5">Item5</div>
+        <div class="item color6">Item6</div>
+        <div class="item color7">Item7</div>
+        <div class="item color8">Item8</div>
+        <div class="item color9">Item9</div>
+        <div class="item color10">Item10</div>
+        <div class="item color11">Item11</div>
+        <div class="item color12">Item12</div>
+    </div>
+
+</body>
+
+</html>

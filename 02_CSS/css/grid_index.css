@@ -1,0 +1,60 @@
+/* grid_index.css */
+
+/* 기본 텍스트 스타일 */
+body {
+  margin: 0;              /* 브라우저 기본 마진 제거 */
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* 공통: 주요 영역을 flex로 중앙 정렬 */
+header,
+main,
+aside,
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 각각 영역 배경색 */
+header {
+  background-color: black;
+  color: white;
+}
+
+main {
+  background-color: red;
+  color: white;
+}
+
+aside {
+  background-color: green;
+  color: white;
+}
+
+footer {
+  background-color: blue;
+  color: white;
+}
+
+/* ⬇️ 수정: .cotainer → .wrap, 중복된 display 제거 */
+.wrap {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  /* 2열 비율 3:1, 3행(헤더100px·본문자동·푸터100px) */
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 100px auto 100px;
+  grid-template-areas:
+    "header header"
+    "main aside"
+    "footer footer";
+}
+
+/* 각 시맨틱 요소를 그리드 영역에 매핑 */
+.wrap > header { grid-area: header; }
+.wrap > main   { grid-area: main; }
+.wrap > aside  { grid-area: aside; }
+.wrap > footer { grid-area: footer; }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery 이미지 크기 변경</title>
+
+    <!-- jQuery 로드 -->
+    <script src="/04_JQuery/js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".b1").click(function () {
+                console.log("함수 호츌 성공");
+                $("img[name='pic1']").css("width", "100px");
+            });
+            $(".b2").click(function () {
+                console.log("함수 호츌 성공");
+                $("img[name='pic1']").css("width", "200px");
+            });
+            $(".b3").click(function () {
+                console.log("함수 호츌 성공");
+                $("img[name='pic1']").css("width", "300px");
+            });
+        });
+    </script>
+
+    <style>
+        .css_pic {
+            width: 500px;
+            margin: 0 auto;
+            border: 1px solid red;
+            text-align: center;
+        }
+
+        .css_pic button {
+            margin: 0 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .css_pic img {
+            display: block;
+            margin: 20px auto;
+            width: 150px;
+            /* 초기 크기 */
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="css_pic">
+        <p>버튼을 클릭하면 그림의 크기가 바뀝니다.</p>
+        <button class="b1">가로 100픽셀</button>
+        <button class="b2">가로 200픽셀</button>
+        <button class="b3">가로 300픽셀</button>
+        <img name="pic1" src="/04_JQuery/img/pic1.jpg" alt="샘플 이미지">
+    </div>
+</body>
+
+</html>
